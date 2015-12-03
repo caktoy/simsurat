@@ -289,14 +289,14 @@
 				<b class="arrow"></b>
 				<ul class="submenu">
 					<li class="">
-						<a href="#">
+						<a href="<?php echo base_url().'index.php/retensi/arsip_aktif'; ?>">
 							<i class="menu-icon fa fa-caret-right"></i>
 							Arsip Aktif
 						</a>
 						<b class="arrow"></b>
 					</li>
 					<li class="">
-						<a href="#">
+						<a href="<?php echo base_url().'index.php/retensi/arsip_inaktif'; ?>">
 							<i class="menu-icon fa fa-caret-right"></i>
 							Arsip Inaktif
 						</a>
@@ -305,7 +305,7 @@
 				</ul>
 			</li>
 			<li class="">
-				<a href="#">
+				<a href="<?php echo base_url().'index.php/retensi/retensi_arsip'; ?>">
 					<i class="menu-icon fa fa-caret-right"></i>
 					<span class="menu-text">
 						Retensi Arsip
@@ -317,7 +317,7 @@
 		</ul>
 	</li>
 	<li class="">
-		<a href="<?php echo base_url().'index.php/page/surat'; ?>">
+		<a href="<?php echo base_url().'index.php/laporan'; ?>">
 			<i class="menu-icon glyphicon glyphicon-file"></i>
 			<span class="menu-text">
 				Laporan

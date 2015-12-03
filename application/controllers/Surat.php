@@ -251,13 +251,13 @@ class Surat extends CI_Controller
       $id_retensi = $this->m_security->gen_ai_id("riwayat_retensi", "id");
       $tgl_retensi = date("Y-m-d", strtotime($this->input->post('retensi')));
       $retensi = $this->m_retensi->get_jenis($id_jenis)[0]->ID_JADWAL;
-      $this->m_riwayat_retensi->create($id_retensi, $id_surat, $retensi, $tgl_retensi);
+      $this->m_riwayat_retensi->create($id_retensi, $id_surat, $retensi, $tgl_retensi, 0);
 
       // insert into riwayat inaktif table
       $id_inaktif = $this->m_security->gen_ai_id("riwayat_inaktif", "id");
       $tgl_inaktif = date("Y-m-d", strtotime($this->input->post('inaktif')));
       $inaktif = $this->m_inaktif->get_jenis($id_jenis)[0]->ID_INAKTIF;
-      $this->m_riwayat_inaktif->create($id_inaktif, $id_surat, $inaktif, $tgl_inaktif, "");
+      $this->m_riwayat_inaktif->create($id_inaktif, $id_surat, $inaktif, $tgl_inaktif, null, 0);
 
       // insert into disposisi table
       $id_disposisi = $this->m_security->gen_ai_id("disposisi", "id");
@@ -402,13 +402,13 @@ class Surat extends CI_Controller
       $id_retensi = $this->m_security->gen_ai_id("riwayat_retensi", "id");
       $tgl_retensi = date("Y-m-d", strtotime($this->input->post('retensi')));
       $retensi = $this->m_retensi->get_jenis($id_jenis)[0]->ID_JADWAL;
-      $this->m_riwayat_retensi->create($id_retensi, $id_surat, $retensi, $tgl_retensi);
+      $this->m_riwayat_retensi->create($id_retensi, $id_surat, $retensi, $tgl_retensi, 0);
 
       //insert into riwayat inaktif table
       $id_inaktif = $this->m_security->gen_ai_id("riwayat_inaktif", "id");
       $tgl_inaktif = date("Y-m-d", strtotime($this->input->post('inaktif')));
       $inaktif = $this->m_inaktif->get_jenis($id_jenis)[0]->ID_INAKTIF;
-      $this->m_riwayat_inaktif->create($id_inaktif, $id_surat, $inaktif, $tgl_inaktif, "");
+      $this->m_riwayat_inaktif->create($id_inaktif, $id_surat, $inaktif, $tgl_inaktif, null, 0);
 
       // start upload file surat
       $this->load->library('upload');
@@ -489,16 +489,6 @@ class Surat extends CI_Controller
       // end upload file surat
     }
     redirect('/surat/keluar_list');
-  }
-
-  public function coba_pdf()
-  {
-    $this->load->library('pdfgenerator');
-    $data['judul'] = 'Pegawai';
-    $data['pegawai'] = $this->m_pegawai->get_all();
-    $html = $this->load->view('pages/pegawai', $data, true);
-
-    $this->pdfgenerator->generate($html, 'coba_pdf');
   }
 }
 

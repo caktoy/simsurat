@@ -9,6 +9,8 @@ class Page extends CI_Controller
   public function index()
   {
     $this->m_peminjaman->cek_keterlambatan();
+    $this->m_riwayat_inaktif->status_check();
+    $this->m_riwayat_retensi->status_check();
     $this->m_security->check();
     $data['judul'] = 'Beranda';
     $data['konten'] = 'pages/beranda';
